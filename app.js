@@ -14,6 +14,20 @@ setMiddlewares(app);
 
 setRoutes(app);
 
+app.use((req, res, next) => {
+  const error = {};
+  error.status = 404;
+  next(error);
+});
+
+app.use((error, req, res, next) => {
+  console.log(error);
+  if ((error.status = 404)) {
+    res.render("pages/error/404");
+  }
+  res.render("pages/error/500");
+});
+
 const PORT = process.env.PORT;
 
 mongoose

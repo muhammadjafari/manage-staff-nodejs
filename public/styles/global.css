@@ -7,9 +7,11 @@ nav {
   background-color: #eee;
 }
 
-.navbar-conatiner a {
+.navbar-container a {
   text-decoration: none;
+  display: inline-block;
   padding: 10px 20px;
+  font-size: 20px;
 }
 
 .width-container {
