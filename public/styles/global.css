@@ -1,0 +1,18 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: #eee;
+}
+
+.navbar-conatiner a {
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.width-container {
+  max-width: 1200px;
+  margin: auto;
+}
