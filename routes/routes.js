@@ -1,4 +1,10 @@
+const authHandler = require("./authRoutes");
+
 const routes = [
+  {
+    path: "/auth",
+    handler: authHandler,
+  },
   {
     path: "/",
     handler: (req, res) => {
