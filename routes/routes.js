@@ -1,9 +1,14 @@
 const authHandler = require("./authRoutes");
+const contentHandler = require("./contentRoutes");
 
 const routes = [
   {
     path: "/auth",
     handler: authHandler,
+  },
+  {
+    path: "/content",
+    handler: contentHandler,
   },
   {
     path: "/",

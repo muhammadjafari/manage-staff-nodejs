@@ -11,10 +11,13 @@
     <%- include("../partials/nav") %>
     <div class="width-container">
       <h1 class="my-5">ورود</h1>
-      <form action="/login" method="post">
+      <form action="/auth/login" method="post">
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <p><%= message && message %></p>
+              </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">
                   نام کاربری
