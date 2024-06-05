@@ -17,7 +17,10 @@
           <h2>محتوایی وجود ندارد</h2>
           <% } else { contents.map( content => {%>
           <div class="col-12">
-            <div class="border border-2 my-2">
+            <div class="border border-2 my-2 p-3">
+              <% if (content.vip === true) {%>
+              <p class="text-center">محتوا ویژه</p>
+              <% }%>
               <h3><%= content.title %></h3>
               <p><%= content.text %></p>
             </div>
