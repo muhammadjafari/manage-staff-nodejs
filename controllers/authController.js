@@ -44,7 +44,9 @@ exports.postSignupController = async (req, res, next) => {
       password,
     });
     await user.save();
-    res.redirect("/");
+    res.render("pages/login", {
+      message: "با موفقیت ثبت نام شدید",
+    });
   } catch (error) {
     next(error);
   }
