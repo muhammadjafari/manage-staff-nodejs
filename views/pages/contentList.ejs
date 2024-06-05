@@ -11,6 +11,20 @@
     <%- include("../partials/nav") %>
     <div class="width-container">
       <h1 class="my-5">صفحه محتوا</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <% if (contents.length === 0) {%>
+          <h2>محتوایی وجود ندارد</h2>
+          <% } else { contents.map( content => {%>
+          <div class="col-12">
+            <div class="border border-2 my-2">
+              <h3><%= content.title %></h3>
+              <p><%= content.text %></p>
+            </div>
+          </div>
+          <% })} %>
+        </div>
+      </div>
     </div>
 
     <script src="/dependencies/bootstrap/bootstrap.bundle.js"></script>

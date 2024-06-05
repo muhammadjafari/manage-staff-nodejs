@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="/dependencies/bootstrap/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav") %>
+    <div class="width-container">
+      <h1 class="my-5">افزودن محتوا</h1>
+      <form action="/content/add-content" method="post">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <p><%= message && message %></p>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">
+                  عنوان
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  name="title"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">
+                  متن
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  name="text"
+                />
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="vip"
+                    id="flexRadioDefault1"
+                    value="true"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    محتوا VIP
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="vip"
+                    id="flexRadioDefault2"
+                    value="false"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    محتوا عادی
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                افزودن
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/dependencies/bootstrap/bootstrap.bundle.js"></script>
+    <script>
+      history.replaceState(null, document.title, location.href);
+    </script>
+  </body>
+</html>

@@ -22,7 +22,7 @@ exports.postLoginController = async (req, res, next) => {
     }
 
     req.session.loggedin = true;
-    res.render("pages/login", {
+    res.render("pages/contentList", {
       message: "وارد شدید",
     });
   } catch (error) {
