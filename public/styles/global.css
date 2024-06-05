@@ -1,3 +1,32 @@
+@font-face {
+  font-family: shabnam;
+  font-weight: normal;
+  src: url("../fonts/Shabnam-FD.ttf");
+}
+
+@font-face {
+  font-family: shabnam;
+  font-weight: bold;
+  src: url("../fonts/Shabnam-Bold-FD.ttf");
+}
+
 body {
   direction: rtl;
+}
+
+* {
+  font-family: shabnam;
+}
+
+.width-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar-container {
+  background-color: #eee;
+}
+
+.nav-item {
+  font-size: 20px;
 }
