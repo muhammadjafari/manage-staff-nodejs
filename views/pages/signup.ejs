@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ثبت نام</title>
+    <link rel="stylesheet" href="/dependencies/bootstrap/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav") %>
+    <div class="width-container">
+      <h1 class="my-5">ثبت نام</h1>
+      <form action="/signup" method="post">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">
+                  نام کاربری
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">
+                  رمز عبور
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  name="password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                ثبت نام
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/dependencies/bootstrap/bootstrap.bundle.js"></script>
+  </body>
+</html>
