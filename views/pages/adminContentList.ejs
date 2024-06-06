@@ -23,6 +23,15 @@
               <% }%>
               <h3><%= content.title %></h3>
               <p><%= content.text %></p>
+              <form action="/admin/delete-content" method="post">
+                <input
+                  type="text"
+                  hidden
+                  value="<%= content.id %>"
+                  name="contentId"
+                />
+                <button type="submit" class="btn btn-primary w-100">حذف</button>
+              </form>
             </div>
           </div>
           <% })} %>
