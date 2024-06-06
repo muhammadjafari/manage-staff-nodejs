@@ -1,6 +1,7 @@
 const authHandler = require("./authRoutes");
 const contentHandler = require("./contentRoutes");
 const adminHandler = require("./adminRoutes");
+const userHandler = require("./userRoutes");
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/admin",
     handler: adminHandler,
+  },
+  {
+    path: "/user",
+    handler: userHandler,
   },
   {
     path: "/",
