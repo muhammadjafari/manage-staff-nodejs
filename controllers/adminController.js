@@ -53,3 +53,26 @@ exports.postDeleteUserController = async (req, res) => {
     next(error);
   }
 };
+
+exports.getAddUserController = (req, res) => {
+  res.render("pages/adminAddUser", {
+    message: "",
+  });
+};
+
+exports.postAddUserController = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = new User({
+      username,
+      password,
+    });
+    await user.save();
+    res.render("pages/adminAddUser", {
+      message: "با موفقیت افزوده شد",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
