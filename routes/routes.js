@@ -1,5 +1,6 @@
 const authHandler = require("./authRoutes");
 const contentHandler = require("./contentRoutes");
+const adminHandler = require("./adminRoutes");
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: "/content",
     handler: contentHandler,
+  },
+  {
+    path: "/admin",
+    handler: adminHandler,
   },
   {
     path: "/",
