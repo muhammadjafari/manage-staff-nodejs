@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <link rel="stylesheet" href="/dependencies/bootstrap/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav") %>
+    <div class="width-container">
+      <h1 class="my-5">لیست کاربران ادمین</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <% if (users.length === 0) {%>
+          <h2>کاربری وجود ندارد</h2>
+          <% } else { users.map( user => {%>
+          <div class="col-12">
+            <div class="border border-2 my-2 p-3">
+              <h3><%= user.username %></h3>
+              <p><%= user.id %></p>
+              <form action="/admin/delete-user" method="post">
+                <input
+                  type="text"
+                  hidden
+                  value="<%= user.id %>"
+                  name="userId"
+                />
+                <button type="submit" class="btn btn-primary w-100">حذف</button>
+              </form>
+            </div>
+          </div>
+          <% })} %>
+        </div>
+      </div>
+    </div>
+
+    <script src="/dependencies/bootstrap/bootstrap.bundle.js"></script>
+  </body>
+</html>

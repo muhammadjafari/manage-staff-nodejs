@@ -1,4 +1,5 @@
 const Content = require("../models/content");
+const User = require("../models/user");
 
 exports.getAdminContentList = async (req, res) => {
   try {
@@ -20,6 +21,32 @@ exports.postDeleteContent = async (req, res) => {
     console.log(contents);
     res.render("pages/adminContentList", {
       contents,
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.getUserListController = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.render("pages/adminUserList", {
+      users,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.postDeleteUserController = async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+    await User.findByIdAndDelete(userId);
+    const users = await User.find();
+    res.render("pages/adminUserList", {
+      users,
     });
   } catch (error) {
     console.log(error);
