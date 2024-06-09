@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const Roles = require("../data/roles");
 
 const userSchema = new Schema({
   username: {
@@ -9,6 +10,11 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    default: Roles.BASIC_USER,
     required: true,
   },
 });

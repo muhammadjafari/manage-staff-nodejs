@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const { bindUserWithRequest } = require("./authMiddleware");
 
 const store = new MongoDBStore({
   uri: process.env.DATABASE_URI,
@@ -22,6 +23,7 @@ const middlewares = [
   }),
   express.static("public"),
   bodyParser.urlencoded({ extended: true }),
+  bindUserWithRequest(),
 ];
 
 const setMiddlewares = (app) => {

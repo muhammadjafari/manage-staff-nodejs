@@ -23,6 +23,7 @@ exports.postLoginController = async (req, res, next) => {
     }
 
     req.session.loggedin = true;
+    req.session.user = user;
     const contents = await Content.find();
     res.render("pages/contentList", {
       contents,
