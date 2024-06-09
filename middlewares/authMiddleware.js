@@ -37,3 +37,13 @@ exports.isAdmin = (req, res, next) => {
 
   next();
 };
+
+exports.isAdminOrSupporter = (req, res, next) => {
+  if (req.user.role == Roles.ADMIN || req.user.role == Roles.SUPPORTER) {
+    return next();
+  }
+
+  res.render("pages/login", {
+    message: "دسترسی ندارید",
+  });
+};
