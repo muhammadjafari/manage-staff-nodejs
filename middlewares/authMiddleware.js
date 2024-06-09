@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Roles = require("../data/roles");
 
 exports.isAuthenticated = (req, res, next) => {
   if (!req.session.loggedin) {
@@ -25,4 +26,14 @@ exports.bindUserWithRequest = () => {
       next(error);
     }
   };
+};
+
+exports.isAdmin = (req, res, next) => {
+  if (req.user.role !== Roles.ADMIN) {
+    return res.render("pages/login", {
+      message: "دسترسی فقط ادمین",
+    });
+  }
+
+  next();
 };

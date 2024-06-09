@@ -9,15 +9,17 @@ const {
   postAddUserController,
 } = require("../controllers/adminController");
 
-router.get("/content-list", getAdminContentList);
+const { isAdmin } = require("../middlewares/authMiddleware");
 
-router.post("/delete-content", postDeleteContent);
+router.get("/content-list", isAdmin, getAdminContentList);
 
-router.get("/user-list", getUserListController);
+router.post("/delete-content", isAdmin, postDeleteContent);
 
-router.post("/delete-user", postDeleteUserController);
+router.get("/user-list", isAdmin, getUserListController);
 
-router.get("/add-user", getAddUserController);
-router.post("/add-user", postAddUserController);
+router.post("/delete-user", isAdmin, postDeleteUserController);
+
+router.get("/add-user", isAdmin, getAddUserController);
+router.post("/add-user", isAdmin, postAddUserController);
 
 module.exports = router;
