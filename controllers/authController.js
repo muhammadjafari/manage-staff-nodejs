@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Content = require("../models/content");
 
 exports.getLoginController = (req, res) => {
   res.render("pages/login", { message: "" });
@@ -22,8 +23,9 @@ exports.postLoginController = async (req, res, next) => {
     }
 
     req.session.loggedin = true;
+    const contents = await Content.find();
     res.render("pages/contentList", {
-      message: "وارد شدید",
+      contents,
     });
   } catch (error) {
     console.log(error);
