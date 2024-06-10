@@ -21,9 +21,9 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  console.log(error);
-  if ((error.status = 404)) {
-    res.render("pages/error/404");
+  console.log("ERROR", error);
+  if (error.status === 404) {
+    return res.render("pages/error/404");
   }
   res.render("pages/error/500");
 });
