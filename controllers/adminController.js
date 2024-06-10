@@ -1,5 +1,6 @@
 const Content = require("../models/content");
 const User = require("../models/user");
+const Roles = require("../data/roles");
 
 exports.getAdminContentList = async (req, res) => {
   try {
@@ -72,6 +73,19 @@ exports.postAddUserController = async (req, res) => {
     res.render("pages/adminAddUser", {
       message: "با موفقیت افزوده شد",
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.postChangeUserRoleController = async (req, res, next) => {
+  const { role, userId } = req.body;
+  console.log(role);
+  console.log(userId);
+
+  try {
+    const user = await User.findByIdAndUpdate(userId, { role });
+    res.render("pages/index");
   } catch (error) {
     next(error);
   }

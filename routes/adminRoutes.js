@@ -7,6 +7,7 @@ const {
   postDeleteUserController,
   getAddUserController,
   postAddUserController,
+  postChangeUserRoleController,
 } = require("../controllers/adminController");
 
 const { isAdmin } = require("../middlewares/authMiddleware");
@@ -21,5 +22,7 @@ router.post("/delete-user", isAdmin, postDeleteUserController);
 
 router.get("/add-user", isAdmin, getAddUserController);
 router.post("/add-user", isAdmin, postAddUserController);
+
+router.post("/change-user-role", isAdmin, postChangeUserRoleController);
 
 module.exports = router;

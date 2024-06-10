@@ -20,6 +20,43 @@
             <div class="border border-2 my-2 p-3">
               <h3><%= user.username %></h3>
               <p><%= user.id %></p>
+              <form action="/admin/change-user-role" method="post">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="role"
+                    id="flexRadioDefault1"
+                    value="supporter"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    پشتیبان
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="role"
+                    id="flexRadioDefault2"
+                    value="basic-user"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    کاربر عادی
+                  </label>
+                </div>
+                <input
+                  type="text"
+                  hidden
+                  value="<%= user.id %>"
+                  name="userId"
+                />
+                <button type="submit" class="btn btn-primary w-100">
+                  تغییر
+                </button>
+              </form>
+              <br />
               <form action="/admin/delete-user" method="post">
                 <input
                   type="text"
